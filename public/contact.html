@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - The Continental</title>
+    <link rel="stylesheet" href="output.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .font-display { font-family: 'Playfair Display', serif; }
+        .font-body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="min-h-screen bg-gradient-to-br from-gray-900 to-gray-800 font-body text-white">
+    <!-- Navigation -->
+    <nav class="fixed w-full px-8 py-6 bg-black/40 backdrop-blur-xl border-b border-white/10 flex items-center justify-between z-50">
+        <a href="/" class="font-display text-3xl font-bold">The Continental</a>
+        <div class="flex gap-8">
+            <a href="/" class="text-white/90 hover:text-white transition-colors">Back to Home</a>
+        </div>
+    </nav>
+
+    <main class="pt-24 px-8 pb-16">
+        <!-- Contact Us Section -->
+        <div class="max-w-6xl mx-auto">
+            <h2 class="font-display text-3xl font-bold mb-8">Get in Touch</h2>
+
+            <!-- Contact Form -->
+            <div class="bg-black/30 backdrop-blur-xl rounded-2xl border border-white/10 p-8">
+                <h3 class="font-display text-2xl font-bold mb-6">Contact Form</h3>
+                <form id="contact-form" class="space-y-6">
+                    <div class="flex gap-6">
+                        <div class="flex-1">
+                            <label for="name" class="block text-white/70">Name</label>
+                            <input type="text" id="name" name="name" class="w-full px-4 py-2 rounded-lg bg-white/10 text-white border border-white/20" required />
+                        </div>
+                        <div class="flex-1">
+                            <label for="email" class="block text-white/70">Email</label>
+                            <input type="email" id="email" name="email" class="w-full px-4 py-2 rounded-lg bg-white/10 text-white border border-white/20" required />
+                        </div>
+                    </div>
+                    <div>
+                        <label for="subject" class="block text-white/70">Subject</label>
+                        <input type="text" id="subject" name="subject" class="w-full px-4 py-2 rounded-lg bg-white/10 text-white border border-white/20" required />
+                    </div>
+                    <div>
+                        <label for="message" class="block text-white/70">Message</label>
+                        <textarea id="message" name="message" class="w-full px-4 py-2 rounded-lg bg-white/10 text-white border border-white/20" rows="4" required></textarea>
+                    </div>
+                    <button type="submit" class="w-full px-6 py-3 rounded-lg bg-purple-600 hover:bg-purple-700 text-white font-medium transition-colors">Send Message</button>
+                </form>
+            </div>
+
+            <!-- Contact and Location Info -->
+            <div class="mt-16 grid grid-cols-3 gap-12">
+                <div class="col-span-1">
+                    <h3 class="font-display text-2xl font-bold mb-4">Contact Information</h3>
+                    <p class="text-white/70">Feel free to reach out to us through the form above, or contact us at the following locations:</p>
+                </div>
+
+                <!-- Location 1 - Delhi -->
+                <div class="bg-black/30 backdrop-blur-xl rounded-2xl border border-white/10 p-8">
+                    <h4 class="font-display text-xl font-semibold mb-4">New York City</h4>
+                    <p class="text-white/70">Address: Lorem, ipsum dolor.</p>
+                    <p class="text-white/70">Phone: Lorem, ipsum dolor.</p>
+                    <p class="text-white/70">Email: Lorem, ipsum dolor.</p>
+                </div>
+
+                <!-- Location 2 - Mumbai -->
+                <div class="bg-black/30 backdrop-blur-xl rounded-2xl border border-white/10 p-8">
+                    <h4 class="font-display text-xl font-semibold mb-4">Paris</h4>
+                    <p class="text-white/70">Address: Lorem ipsum dolor sit.</p>
+                    <p class="text-white/70">Phone: Lorem, ipsum dolor./p>
+                    <p class="text-white/70">Email: Lorem ipsum dolor sit.</p>
+                </div>
+
+                <!-- Location 3 - Chennai -->
+                <div class="bg-black/30 backdrop-blur-xl rounded-2xl border border-white/10 p-8">
+                    <h4 class="font-display text-xl font-semibold mb-4">Osaka</h4>
+                    <p class="text-white/70">Address: Lorem, ipsum dolor.</p>
+                    <p class="text-white/70">Phone: Lorem, ipsum dolor.</p>
+                    <p class="text-white/70">Email: Lorem, ipsum dolor.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault(); 
+
+            const formData = new FormData(event.target);
+
+            fetch('/api/contact', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => {
+                if (response.ok) {
+                    alert('Thank you for reaching out! We will get back to you soon.');
+                    event.target.reset(); // Reset the form
+                } else {
+                    alert('Something went wrong. Please try again later.');
+                }
+            })
+            .catch(error => {
+                console.error('Error submitting form:', error);
+                alert('Error submitting the form. Please try again.');
+            });
+        });
+    </script>
+</body>
+</html>

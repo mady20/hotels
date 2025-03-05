@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Continental - Events</title>
+<link rel="stylesheet" href="output.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .font-display { font-family: 'Playfair Display', serif; }
+        .font-body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="min-h-screen bg-gradient-to-br from-gray-900 to-gray-800 font-body text-white">
+    <!-- Navigation -->
+    <nav class="fixed w-full px-8 py-6 bg-black/40 backdrop-blur-xl border-b border-white/10 flex items-center justify-between z-50">
+        <a href="/" class="font-display text-3xl font-bold">The Continental</a>
+        <div class="flex gap-8">
+            <a href="/locations" class="text-white/90 hover:text-white transition-colors">Locations</a>
+            <a href="/dining" class="text-white/90 hover:text-white transition-colors">Dining</a>
+            <a href="/reservations" class="text-white/90 hover:text-white transition-colors">Reservations</a>
+            <a href="/events" class="text-white/90 hover:text-white transition-colors">Events</a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="pt-24 px-8 pb-16">
+        <div class="max-w-7xl mx-auto">
+            <!-- Page Header -->
+            <h1 class="font-display text-4xl font-bold text-center mb-12">Upcoming & Past Events</h1>
+            
+            <!-- Upcoming Events -->
+            <section class="mb-16">
+                <h2 class="font-display text-3xl font-semibold mb-8">Upcoming Events</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Event Card -->
+                    <div class="bg-black/30 backdrop-blur-xl rounded-2xl border border-white/10 p-6 hover:border-white/20 transition-colors">
+                        <img src="https://via.placeholder.com/400x250?text=Event+1" alt="Event 1" class="rounded-lg mb-4 w-full h-[200px] object-cover">
+                        <h3 class="font-display text-2xl font-bold mb-2">Black Tie Gala</h3>
+                        <p class="text-white/70 mb-2">Join us for an elegant evening with fine dining, live music, and exclusive guest appearances.</p>
+                        <p class="text-sm text-white/50 mb-4">Date: January 15, 2025</p>
+                        <p class="text-sm text-white/50 mb-4">Location: The Continental - New York</p>
+                        <button class="bg-purple-600 hover:bg-purple-700 px-6 py-2 rounded-lg font-medium transition-colors">Learn More</button>
+                    </div>
+                    
+                    <!-- Event Card -->
+                    <div class="bg-black/30 backdrop-blur-xl rounded-2xl border border-white/10 p-6 hover:border-white/20 transition-colors">
+                        <img src="https://via.placeholder.com/400x250?text=Event+2" alt="Event 2" class="rounded-lg mb-4 w-full h-[200px] object-cover">
+                        <h3 class="font-display text-2xl font-bold mb-2">Parisian Art Exhibition</h3>
+                        <p class="text-white/70 mb-2">Explore works by renowned artists at our exclusive Paris gallery.</p>
+                        <p class="text-sm text-white/50 mb-4">Date: February 20, 2025</p>
+                        <p class="text-sm text-white/50 mb-4">Location: The Continental - Paris</p>
+                        <button class="bg-purple-600 hover:bg-purple-700 px-6 py-2 rounded-lg font-medium transition-colors">Learn More</button>
+                    </div>
+                    
+                    <!-- Event Card -->
+                    <div class="bg-black/30 backdrop-blur-xl rounded-2xl border border-white/10 p-6 hover:border-white/20 transition-colors">
+                        <img src="https://via.placeholder.com/400x250?text=Event+3" alt="Event 3" class="rounded-lg mb-4 w-full h-[200px] object-cover">
+                        <h3 class="font-display text-2xl font-bold mb-2">Zen Retreat</h3>
+                        <p class="text-white/70 mb-2">Immerse yourself in tranquility with our exclusive wellness retreat in Japan.</p>
+                        <p class="text-sm text-white/50 mb-4">Date: March 10, 2025</p>
+                        <p class="text-sm text-white/50 mb-4">Location: The Continental - Japan</p>
+                        <button class="bg-purple-600 hover:bg-purple-700 px-6 py-2 rounded-lg font-medium transition-colors">Learn More</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Past Events -->
+            <section>
+                <h2 class="font-display text-3xl font-semibold mb-8">Past Events</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Past Event Card -->
+                    <div class="bg-black/30 backdrop-blur-xl rounded-2xl border border-white/10 p-6 hover:border-white/20 transition-colors">
+                        <img src="https://via.placeholder.com/400x250?text=Past+Event+1" alt="Past Event 1" class="rounded-lg mb-4 w-full h-[200px] object-cover">
+                        <h3 class="font-display text-2xl font-bold mb-2">Holiday Masquerade Ball</h3>
+                        <p class="text-white/70 mb-2">A glamorous evening to celebrate the holidays in style.</p>
+                        <p class="text-sm text-white/50">Date: December 15, 2024</p>
+                    </div>
+                    
+                    <!-- Past Event Card -->
+                    <div class="bg-black/30 backdrop-blur-xl rounded-2xl border border-white/10 p-6 hover:border-white/20 transition-colors">
+                        <img src="https://via.placeholder.com/400x250?text=Past+Event+2" alt="Past Event 2" class="rounded-lg mb-4 w-full h-[200px] object-cover">
+                        <h3 class="font-display text-2xl font-bold mb-2">Tokyo Culinary Festival</h3>
+                        <p class="text-white/70 mb-2">A feast for the senses featuring chefs from around the world.</p>
+                        <p class="text-sm text-white/50">Date: November 20, 2024</p>
+                    </div>
+                    
+                    <!-- Past Event Card -->
+                    <div class="bg-black/30 backdrop-blur-xl rounded-2xl border border-white/10 p-6 hover:border-white/20 transition-colors">
+                        <img src="https://via.placeholder.com/400x250?text=Past+Event+3" alt="Past Event 3" class="rounded-lg mb-4 w-full h-[200px] object-cover">
+                        <h3 class="font-display text-2xl font-bold mb-2">New York Film Premiere</h3>
+                        <p class="text-white/70 mb-2">An exclusive screening of a blockbuster film with the cast and crew.</p>
+                        <p class="text-sm text-white/50">Date: October 10, 2024</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+</body>
+</html>

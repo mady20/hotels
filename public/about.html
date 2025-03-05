@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - The Continental</title>
+    <link rel="stylesheet" href="output.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .font-display { font-family: 'Playfair Display', serif; }
+        .font-body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="min-h-screen bg-gradient-to-br from-gray-900 to-gray-800 font-body text-white">
+    <!-- Navigation -->
+    <nav class="fixed w-full px-8 py-6 bg-black/40 backdrop-blur-xl border-b border-white/10 flex items-center justify-between z-50">
+        <a href="/" class="font-display text-3xl font-bold">The Continental</a>
+        <div class="flex gap-8">
+            <a href="/" class="text-white/90 hover:text-white transition-colors">Back to Home</a>
+        </div>
+    </nav>
+
+    <!-- Hero Image Section -->
+    <section class="relative">
+        <img src="../public/images/1.jpg" alt="Hero Image" class="w-full h-[60vh] object-cover">
+        <div class="absolute inset-0 bg-black/60 flex justify-center items-center">
+            <h1 class="font-display text-5xl font-bold text-white text-center">About Us</h1>
+        </div>
+    </section>
+
+    <main class="pt-24 px-8 pb-16">
+        <!-- Our Story Section -->
+        <div class="max-w-6xl mx-auto">
+            <div class="mb-16">
+                <h2 class="font-display text-4xl font-bold text-center mb-6">Our Story</h2>
+                <p class="text-center text-white/70 text-lg">
+                    Founded in 2010, The Continental has grown to become a leading name in luxury hospitality across the globe. 
+                    We are committed to providing unforgettable experiences with first-class service, dining, and accommodations. 
+                    Our journey has been one of innovation, excellence, and a passion for hospitality.
+                </p>
+            </div>
+
+            <!-- Mission & Values Section -->
+            <div class="mb-16 grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="font-display text-3xl font-bold mb-6">Mission & Values</h3>
+                    <p class="text-white/70 text-lg mb-6">
+                        Our mission is simple: to provide luxurious and memorable experiences for every guest. 
+                        We stand by these values:
+                    </p>
+                    <ul class="text-white/70 list-disc pl-5 space-y-3 text-lg">
+                        <li>Commitment to Quality</li>
+                        <li>Innovation and Creativity</li>
+                        <li>Customer-Centric Approach</li>
+                        <li>Sustainability and Responsibility</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-display text-3xl font-bold mb-6">Our Team</h3>
+                    <p class="text-white/70 text-lg mb-6">
+                        At The Continental, we pride ourselves on having a team that is passionate about hospitality. 
+                        From chefs to housekeeping, each member plays a vital role in delivering exceptional service to our guests.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Locations Section -->
+            <div class="mb-16">
+                <h3 class="font-display text-3xl font-bold text-center mb-6">Our Locations</h3>
+                <p class="text-center text-white/70 text-lg mb-6">
+                    We have expanded globally to bring our luxury experience to New York, Paris, and Osaka. Each of our locations 
+                    is designed to offer guests a unique blend of local culture with exceptional service and top-tier amenities.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                    <div class="bg-black/30 backdrop-blur-xl rounded-2xl border border-white/10 p-8">
+                        <h4 class="font-display text-xl font-semibold mb-4">New York, Manhattan</h4>
+                        <p class="text-white/70">Our Manhattan location offers stunning views of the skyline and an unparalleled experience in the heart of New York City.</p>
+                    </div>
+                    <div class="bg-black/30 backdrop-blur-xl rounded-2xl border border-white/10 p-8">
+                        <h4 class="font-display text-xl font-semibold mb-4">Paris</h4>
+                        <p class="text-white/70">Located in the vibrant city of Paris, our hotel blends French elegance with modern luxury, offering spectacular views of the Eiffel Tower.</p>
+                    </div>
+                    <div class="bg-black/30 backdrop-blur-xl rounded-2xl border border-white/10 p-8">
+                        <h4 class="font-display text-xl font-semibold mb-4">Osaka</h4>
+                        <p class="text-white/70">Our Osaka location offers a unique blend of Japanese tradition and contemporary luxury, located near the bustling city center.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact CTA Section -->
+            <div class="text-center">
+                <h3 class="font-display text-3xl font-bold text-white mb-4">Join Us for an Unforgettable Experience</h3>
+                <p class="text-white/70 text-lg mb-6">Whether you're planning a business trip or a leisurely getaway, we invite you to experience the finest in luxury across our global locations.</p>
+                <a href="/contact" class="inline-block px-6 py-3 bg-purple-600 text-white font-semibold rounded-lg hover:bg-purple-700 transition-colors">
+                    Get in Touch
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-black/90 text-white py-6 text-center">
+        <p>&copy; 2024 The Continental. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

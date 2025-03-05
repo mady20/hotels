@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Continental - Reservations</title>
+    <link rel="stylesheet" href="output.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        .font-display {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .font-body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+
+<body class="min-h-screen bg-gray-950 font-body text-white">
+    <nav class="fixed w-full px-8 py-6 bg-black/40 backdrop-blur-xl border-b border-white/10 flex items-center justify-between z-50">
+        <a href="/" class="font-display text-3xl font-bold text-white">The Continental</a>
+        <div class="flex gap-12 items-center">
+            <a href="/" class="text-white/90 hover:text-white transition-colors text-sm font-medium">Home</a>
+            <a href="#locations" class="text-white/90 hover:text-white transition-colors text-sm font-medium">Locations</a>
+            <a href="/dining" class="text-white/90 hover:text-white transition-colors text-sm font-medium">Dining</a>
+            <a href="/events" class="text-white/90 hover:text-white transition-colors text-sm font-medium">Events</a>
+            <a href="/contact" class="text-white/90 hover:text-white transition-colors text-sm font-medium">Contact</a>
+            <a href="/about" class="text-white/90 hover:text-white transition-colors text-sm font-medium">About</a>
+        </div>
+        <div class="flex items-center gap-8">
+            <a href="/api/users" class="bg-white hover:bg-gray-100 text-gray-900 px-6 py-3 rounded-full text-sm font-semibold transition-colors">Login</a>
+        </div>
+    </nav>
+
+    <main class="pt-24 px-8 pb-16">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-display font-bold mb-6">Choose Your Room</h2>
+            <form id="booking-form" method="POST" action="/book" novalidate>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="md:col-span-2 space-y-6">
+                        <div class="room-option bg-white/5 backdrop-blur-xl rounded-2xl border border-white/10 p-8 hover:border-white/20 transition-colors" data-price="399" data-name="Deluxe Suite" data-capacity="2">
+                            <div class="flex flex-col md:flex-row gap-6">
+                                <img src="https://via.placeholder.com/300x200" alt="Deluxe Room" class="rounded-lg w-full md:w-72 object-cover">
+                                <div class="flex-1">
+                                    <h3 class="font-display text-2xl font-bold mb-2">Deluxe Suite</h3>
+                                    <p class="text-white/70 mb-4">Luxurious suite with city views and premium amenities.</p>
+                                    <div class="flex flex-col md:flex-row justify-between items-center">
+                                        <div class="text-3xl font-bold mb-4 md:mb-0">$399<span class="text-white/70">/night</span></div>
+                                        <button type="button" class="select-room bg-purple-600 hover:bg-purple-700 px-6 py-3 rounded-lg font-medium transition-colors">Select Room</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="room-option bg-white/5 backdrop-blur-xl rounded-2xl border border-white/10 p-8 hover:border-white/20 transition-colors" data-price="599" data-name="Executive Suite" data-capacity="3">
+                            <div class="flex flex-col md:flex-row gap-6">
+                                <img src="https://via.placeholder.com/300x200" alt="Executive Suite" class="rounded-lg w-full md:w-72 object-cover">
+                                <div class="flex-1">
+                                    <h3 class="font-display text-2xl font-bold mb-2">Executive Suite</h3>
+                                    <p class="text-white/70 mb-4">Spacious suite with separate living area and panoramic views.</p>
+                                    <div class="flex flex-col md:flex-row justify-between items-center">
+                                        <div class="text-3xl font-bold mb-4 md:mb-0">$599<span class="text-white/70">/night</span></div>
+                                        <button type="button" class="select-room bg-purple-600 hover:bg-purple-700 px-6 py-3 rounded-lg font-medium transition-colors">Select Room</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="space-y-6">
+                        <div class="bg-white/5 backdrop-blur-xl rounded-2xl border border-white/10 p-8">
+                            <h3 class="font-display text-2xl font-bold mb-6">Booking Summary</h3>
+                            <div class="space-y-4 mb-6">
+                                <div class="flex flex-col">
+                                    <label for="check-in" class="text-white/70">Check-in</label>
+                                    <input name="check_in" id="check-in" type="date" class="bg-white/10 border border-white/20 rounded-lg px-4 py-2 text-white w-full mt-1" required min="">
+                                </div>
+                                <div class="flex flex-col">
+                                    <label for="check-out" class="text-white/70">Check-out</label>
+                                    <input name="check_out" id="check-out" type="date" class="bg-white/10 border border-white/20 rounded-lg px-4 py-2 text-white w-full mt-1" required min="">
+                                </div>
+                                <div class="flex flex-col">
+                                    <label for="guests" class="text-white/70">Guests</label>
+                                    <select name="guests" id="guests" class="bg-white/10 border border-white/20 rounded-lg px-4 py-2 text-white w-full mt-1" required>
+                                        <option value="">Select number of guests</option>
+                                        <option value="1">1 Adult</option>
+                                        <option value="2">2 Adults</option>
+                                        <option value="3">3 Adults</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <hr class="border-white/20">
+                            <div class="mt-6 space-y-4">
+                                <div class="flex justify-between">
+                                    <span>Room</span>
+                                    <span id="summary-room" class="font-medium text-white/70">-</span>
+                                    <input type="hidden" name="room_name" id="room_name">
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>Total Price</span>
+                                    <span id="summary-price" class="font-bold text-xl">$0</span>
+                                    <input type="hidden" name="total_price" id="total_price">
+                                </div>
+                            </div>
+
+                            <input name="email" id="email" type="email" placeholder="Email" class="bg-white/10 border border-white/20 rounded-lg px-4 py-2 text-white w-full mt-6" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+                            <button type="submit" id="submit-button" class="bg-purple-600 hover:bg-purple-700 px-6 py-3 rounded-lg font-medium w-full mt-6 transition-colors" disabled>Confirm Booking</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.getElementById('booking-form');
+            const selectButtons = document.querySelectorAll('.select-room');
+            const summaryRoom = document.getElementById('summary-room');
+            const summaryPrice = document.getElementById('summary-price');
+            const roomNameInput = document.getElementById('room_name');
+            const totalPriceInput = document.getElementById('total_price');
+            const checkInInput = document.getElementById('check-in');
+            const checkOutInput = document.getElementById('check-out');
+            const guestsInput = document.getElementById('guests');
+            const emailInput = document.getElementById('email');
+            const submitButton = document.getElementById('submit-button');
+    
+            // Set min date for check-in to today
+            const today = new Date().toISOString().split('T')[0];
+            checkInInput.setAttribute('min', today);
+    
+            let selectedRoom = { name: "", price: 0 };
+    
+            selectButtons.forEach(button => {
+                button.addEventListener('click', (event) => {
+                    selectButtons.forEach(btn => btn.closest('.room-option').classList.remove('border-purple-500'));
+                    const room = event.target.closest('.room-option');
+                    room.classList.add('border-purple-500');
+    
+                    selectedRoom.name = room.dataset.name;
+                    selectedRoom.price = parseInt(room.dataset.price);
+    
+                    summaryRoom.textContent = selectedRoom.name;
+                    roomNameInput.value = selectedRoom.name;
+                    updateTotalPrice();
+                    validateForm();
+                });
+            });
+
+            function updateTotalPrice() {
+                if (!selectedRoom.name || !checkInInput.value || !checkOutInput.value) return;
+                
+                const checkInDate = new Date(checkInInput.value);
+                const checkOutDate = new Date(checkOutInput.value);
+                
+                if (checkOutDate <= checkInDate) {
+                    alert('Check-out date must be after check-in date');
+                    checkOutInput.value = '';
+                    summaryPrice.textContent = '$0';
+                    return;
+                }
+    
+                const days = Math.ceil((checkOutDate - checkInDate) / (1000 * 60 * 60 * 24));
+    
+                totalPriceInput.value = days * selectedRoom.price;
+                summaryPrice.textContent = `$${totalPriceInput.value}`;
+                validateForm();
+            }
+    
+            function validateForm() {
+                const roomSelected = !!selectedRoom.name;
+                const datesValid = checkInInput.value && checkOutInput.value;
+                const guestsValid = guestsInput.value;
+                const emailValid = emailInput.checkValidity();
+
+                submitButton.disabled = !(roomSelected && datesValid && guestsValid && emailValid);
+            }
+    
+            checkInInput.addEventListener('change', () => {
+                checkOutInput.min = checkInInput.value;
+                updateTotalPrice();
+            });
+    
+            checkOutInput.addEventListener('change', updateTotalPrice);
+            guestsInput.addEventListener('change', validateForm);
+            emailInput.addEventListener('input', validateForm);
+    
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                if (submitButton.disabled) return;
+    
+                // In a real-world scenario, you would send the form data to a server
+                alert('Booking Confirmed! Redirecting to confirmation page...');
+                // form.submit(); // Uncomment this in a real implementation
+            });
+        });
+    </script>
+</body>
+
+</html>

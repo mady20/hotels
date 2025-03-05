@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Continental - Dining</title>
+    <link rel="stylesheet" href="output.css">    
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .font-display { font-family: 'Playfair Display', serif; }
+        .font-body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="min-h-screen bg-gradient-to-br from-gray-900 to-gray-800 font-body text-white">
+    <!-- Navigation -->
+    <nav class="fixed w-full px-8 py-6 bg-black/40 backdrop-blur-xl border-b border-white/10 flex items-center justify-between z-50">
+        <a href="/" class="font-display text-3xl font-bold">The Continental</a>
+        <div class="flex gap-8">
+            <a href="/locations" class="text-white/90 hover:text-white transition-colors">Locations</a>
+            <a href="/dining" class="text-white/90 hover:text-white transition-colors">Dining</a>
+            <a href="/reservations" class="text-white/90 hover:text-white transition-colors">Reservations</a>
+        </div>
+    </nav>
+
+    <main class="pt-24 px-8 pb-16">
+        <div class="max-w-7xl mx-auto">
+            <h1 class="font-display text-4xl font-bold text-center mb-12">Exceptional Dining Experiences</h1>
+            <div class="space-y-16">
+                <!-- Restaurant 1 -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <img src="https://via.placeholder.com/600x400?text=Gourmet+Restaurant" alt="Gourmet Restaurant" class="rounded-lg shadow-lg w-full">
+                    <div>
+                        <h2 class="font-display text-3xl font-bold mb-4">The Gourmet Room</h2>
+                        <p class="text-white/70 mb-6">
+                            Indulge in a fine dining experience with a curated menu of international and local delicacies. 
+                            Our chefs use the freshest ingredients to craft dishes that delight your senses.
+                        </p>
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-utensils text-purple-500"></i>
+                                <span>Signature multi-course meals</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-glass-cheers text-purple-500"></i>
+                                <span>Pairings with world-class wines</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-clock text-purple-500"></i>
+                                <span>Open for dinner: 6 PM - 11 PM</span>
+                            </li>
+                        </ul>
+                        <a href="/reservations" class="bg-purple-600 hover:bg-purple-700 px-6 py-3 rounded-lg font-medium transition-colors">Reserve a Table</a>
+                    </div>
+                </div>
+
+                <!-- Restaurant 2 -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <img src="https://via.placeholder.com/600x400?text=The+Continental+Cafe" alt="The Continental Cafe" class="rounded-lg shadow-lg w-full order-2 md:order-1">
+                    <div class="order-1 md:order-2">
+                        <h2 class="font-display text-3xl font-bold mb-4">The Continental Café</h2>
+                        <p class="text-white/70 mb-6">
+                            A relaxed all-day dining spot offering a variety of comfort foods, light bites, and artisan coffee. Perfect for business meetings or casual hangouts.
+                        </p>
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-coffee text-purple-500"></i>
+                                <span>Specialty coffee and teas</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-salad text-purple-500"></i>
+                                <span>Fresh salads and gourmet sandwiches</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-clock text-purple-500"></i>
+                                <span>Open daily: 7 AM - 10 PM</span>
+                            </li>
+                        </ul>
+                        <a href="/reservations" class="bg-purple-600 hover:bg-purple-700 px-6 py-3 rounded-lg font-medium transition-colors">Reserve a Table</a>
+                    </div>
+                </div>
+
+                <!-- Bar -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <img src="https://via.placeholder.com/600x400?text=Sky+Bar" alt="Sky Bar" class="rounded-lg shadow-lg w-full">
+                    <div>
+                        <h2 class="font-display text-3xl font-bold mb-4">The Sky Bar</h2>
+                        <p class="text-white/70 mb-6">
+                            Enjoy breathtaking views of the city skyline while sipping on handcrafted cocktails and savoring gourmet appetizers at our rooftop bar.
+                        </p>
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-cocktail text-purple-500"></i>
+                                <span>Signature and classic cocktails</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-eye text-purple-500"></i>
+                                <span>Stunning rooftop views</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-clock text-purple-500"></i>
+                                <span>Open for evenings: 5 PM - 1 AM</span>
+                            </li>
+                        </ul>
+                        <a href="/reservations" class="bg-purple-600 hover:bg-purple-700 px-6 py-3 rounded-lg font-medium transition-colors">Reserve a Spot</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
