@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Bookings - The Continental</title>
+    <link rel="stylesheet" href="output.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .font-display {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .font-body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+
+<body class="min-h-screen bg-gradient-to-br from-gray-900 to-gray-800 font-body text-white">
+    <!-- Navigation -->
+    <nav
+        class="fixed w-full px-8 py-6 bg-black/40 backdrop-blur-xl border-b border-white/10 flex items-center justify-between z-50">
+        <a href="/" class="font-display text-3xl font-bold">The Continental</a>
+        <div class="flex gap-8">
+            <a href="/" class="text-white/90 hover:text-white transition-colors">Back to Home</a>
+        </div>
+    </nav>
+
+    <main class="pt-24 px-8 pb-16">
+        <!-- Bookings Overview -->
+        <div class="max-w-6xl mx-auto">
+            <h2 class="font-display text-3xl font-bold mb-8">Your Bookings</h2>
+
+            <div id="bookings-container" class="space-y-6">
+                <form id="booking-form">
+                    <input name="email" id="email" type="text" placeholder="Email"
+                        class="bg-white/10 border border-white/20 rounded-lg px-4 py-2 text-white w-full mt-6" required>
+                    <button type="submit"
+                        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4">Submit</button>
+                </form>
+                <div id="user-info" class="mt-8"></div>
+                <div id="user-bookings" class="mt-8"></div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        document.getElementById('booking-form').addEventListener('submit', async function (event) {
+            event.preventDefault();
+            const email = document.getElementById('email').value;
+
+            try {
+                const userResponse = await fetch('/api/users/current', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ email })
+                });
+
+                const userData = await userResponse.json();
+
+                const bookingsResponse = await fetch('/api/bookings', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ email })
+                });
+
+                const bookingsData = await bookingsResponse.json();
+
+                document.getElementById('user-info').innerHTML = `
+                    <h3 class="font-display text-2xl font-bold">User Info</h3>
+                    <p>Name: ${userData.name}</p>
+                    <p>Email: ${userData.email}</p>
+                `;
+
+                const bookingsContainer = document.getElementById('user-bookings');
+                bookingsContainer.innerHTML = '<h3 class="font-display text-2xl font-bold">Bookings</h3>';
+                bookingsData.forEach(booking => {
+                    bookingsContainer.innerHTML += `
+                        <div class="bg-white/10 border border-white/20 rounded-lg px-4 py-2 text-white mt-4">
+                            <p>Booking ID: ${booking.id}</p>
+                            <p>Hotel: ${booking.hotel}</p>
+                            <p>Check-in: ${booking.checkIn}</p>
+                            <p>Check-out: ${booking.checkOut}</p>
+                        </div>
+                    `;
+                });
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        });
+    </script>
+</body>
+
+</html>

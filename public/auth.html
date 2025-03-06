@@ -3,133 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Continental - Sign In</title>
-    <link href="output.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <style>
-        .font-display { font-family: 'Playfair Display', serif; }
-        .font-body { font-family: 'Inter', sans-serif; }
-        @keyframes slideRight {
-            from { transform: translateX(-100%); }
-            to { transform: translateX(0); }
-        }
-        @keyframes slideLeft {
-            from { transform: translateX(0); }
-            to { transform: translateX(-100%); }
-        }
-        .slide-right { animation: slideRight 0.5s ease-out forwards; }
-        .slide-left { animation: slideLeft 0.5s ease-out forwards; }
-    </style>
+    <title>Login & Signup</title>
 </head>
-<body class="min-h-screen bg-gradient-to-br from-gray-900 to-gray-800 font-body">
-    <div class="min-h-screen flex items-center justify-center p-4">
-        <div class="relative w-full max-w-6xl h-[600px] bg-black/30 rounded-2xl backdrop-blur-xl border border-white/10 overflow-hidden">
-            <div class="absolute inset-0 flex">
-                <!-- Sign In Form -->
-                <div id="signInForm" class="w-1/2 p-12 flex flex-col justify-center">
-                    <h2 class="font-display text-4xl font-bold text-white mb-8">Welcome Back</h2>
-                    <form class="space-y-6" action="/api/auth/login" method="post">
-                        <div>
-                            <label class="block text-white/80 mb-2 text-sm">Email Address</label>
-                            <div class="relative">
-                                <i class="fas fa-envelope absolute left-4 top-1/2 -translate-y-1/2 text-white/40"></i>
-                                <input type="text" class="w-full bg-white/10 border border-white/20 rounded-lg px-11 py-3 text-white placeholder-white/30 focus:outline-none focus:border-white/40" name="email" placeholder="Enter your email">
-                            </div>
-                        </div>
-                        <div>
-                            <label class="block text-white/80 mb-2 text-sm">Password</label>
-                            <div class="relative">
-                                <i class="fas fa-lock absolute left-4 top-1/2 -translate-y-1/2 text-white/40"></i>
-                                <input type="password" class="w-full bg-white/10 border border-white/20 rounded-lg px-11 py-3 text-white placeholder-white/30 focus:outline-none focus:border-white/40" name="password" placeholder="Enter your password">
-                            </div>
-                        </div>
-                        <div class="flex items-center justify-between">
-                            <label class="flex items-center">
-                                <input type="checkbox" class="w-4 h-4 rounded border-white/20 text-purple-600">
-                                <span class="ml-2 text-sm text-white/80">Remember me</span>
-                            </label>
-                            <a href="#" class="text-sm text-white/80 hover:text-white">Forgot Password?</a>
-                        </div>
-                        <button class="w-full bg-purple-600 hover:bg-purple-700 text-white py-3 rounded-lg font-medium transition-colors">Sign In</button>
-                    </form>
-                    <div class="mt-8">
-                        <p class="text-center text-white/60 mb-4">Or continue with</p>
-                        <div class="flex justify-center gap-4">
-                            <a href="#" class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white/60 hover:text-white hover:border-white/40 transition-colors">
-                                <i class="fab fa-google"></i>
-                            </a>
-                            <a href="#" class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white/60 hover:text-white hover:border-white/40 transition-colors">
-                                <i class="fab fa-apple"></i>
-                            </a>
-                            <a href="#" class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white/60 hover:text-white hover:border-white/40 transition-colors">
-                                <i class="fab fa-facebook"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
+<body>
+    <h2>Login</h2>
+    <form id="loginForm" action="http://localhost:1234/api/users/login" method="POST">
+        <label for="loginUsername">Email:</label>
+        <input type="text" id="loginUsername" name="email" required>
+        <label for="loginPassword">Password:</label>
+        <input type="password" id="loginPassword" name="password" required>
+        <button type="submit">Login</button>
+    </form>
 
-                <!-- Sign Up Form -->
-                <div id="signUpForm" class="w-1/2 p-12 flex flex-col justify-center translate-x-full opacity-0 transition-all duration-500">
-                    <h2 class="font-display text-4xl font-bold text-white mb-8">Create Account</h2>
-                    <form class="space-y-6" action="/api/auth/signup" method="post">
-                        <div>
-                            <label class="block text-white/80 mb-2 text-sm">Full Name</label>
-                            <div class="relative">
-                                <input type="text" class="w-full bg-white/10 border border-white/20 rounded-lg px-11 py-3 text-white placeholder-white/30 focus:outline-none focus:border-white/40" name="name" placeholder="Enter your name">
-                                <input type="text" class="w-full bg-white/10 border border-white/20 rounded-lg px-11 py-3 text-white placeholder-white/30 focus:outline-none focus:border-white/40" placeholder="Enter your name">
-                            </div>
-                        </div>
-                        <div>
-                            <label class="block text-white/80 mb-2 text-sm">Email Address</label>
-                            <div class="relative">
-                                <i class="fas fa-envelope absolute left-4 top-1/2 -translate-y-1/2 text-white/40"></i>
-                                <input type="text" class="w-full bg-white/10 border border-white/20 rounded-lg px-11 py-3 text-white placeholder-white/30 focus:outline-none focus:border-white/40" name="email" placeholder="Enter your email">
-                            </div>
-                        </div>
-                        <div>
-                            <label class="block text-white/80 mb-2 text-sm">Password</label>
-                            <div class="relative">
-                                <i class="fas fa-lock absolute left-4 top-1/2 -translate-y-1/2 text-white/40"></i>
-                                <input type="password" class="w-full bg-white/10 border border-white/20 rounded-lg px-11 py-3 text-white placeholder-white/30 focus:outline-none focus:border-white/40" name="password" placeholder="Choose a password">
-                            </div>
-                        </div>
-                        <button class="w-full bg-purple-600 hover:bg-purple-700 text-white py-3 rounded-lg font-medium transition-colors">Create Account</button>
-                    </form>
-                </div>
-
-                <!-- Overlay -->
-                <div id="overlay" class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-br from-purple-600 to-purple-800 p-12 flex flex-col items-center justify-center text-white text-center">
-                    <h3 class="font-display text-3xl font-bold mb-4">New to The Continental?</h3>
-                    <p class="mb-8 text-white/90">Join us to experience luxury beyond imagination.</p>
-                    <button id="toggleBtn" class="border-2 border-white rounded-lg px-8 py-3 font-medium hover:bg-white hover:text-purple-600 transition-colors">Create Account</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        const toggleBtn = document.getElementById('toggleBtn');
-        const overlay = document.getElementById('overlay');
-        const signInForm = document.getElementById('signInForm');
-        const signUpForm = document.getElementById('signUpForm');
-        let isSignIn = true;
-
-        toggleBtn.addEventListener('click', () => {
-            if (isSignIn) {
-                overlay.style.transform = 'translateX(-100%)';
-                signUpForm.style.transform = 'translateX(0)';
-                signUpForm.style.opacity = '1';
-                signInForm.style.opacity = '0';
-                toggleBtn.textContent = 'Sign In';
-            } else {
-                overlay.style.transform = 'translateX(0)';
-                signUpForm.style.transform = 'translateX(100%)';
-                signUpForm.style.opacity = '0';
-                signInForm.style.opacity = '1';
-                toggleBtn.textContent = 'Create Account';
-            }
-            isSignIn = !isSignIn;
-        });
-    </script>
+    <h2>Register</h2>
+    <form id="signupForm" action="http://localhost:1234/api/users/register" method="POST">
+        <label for="signupUsername">Username:</label>
+        <input type="text" id="signupUsername" name="username" required>
+        <label for="signupEmail">Email:</label>
+        <input type="text" id="signupEmail" name="email" required>
+        <label for="signupPassword">Password:</label>
+        <input type="password" id="signupPassword" name="password" required>
+        <button type="submit">Register</button>
+    </form>
 </body>
 </html>

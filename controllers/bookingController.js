@@ -22,7 +22,8 @@ const searchBookings = asyncHandler(async (req, res) => {
 // Get all bookings
 const getBookings = asyncHandler(async (req, res) => {
     const users = readUsersData();
-    const user = users.find((user) => user.id === req.user.id);
+    const { email } = req.body;
+    const user = users.find((user) => user.email === email);
     if (!user) {
         res.status(404);
         throw new Error("User not found");
@@ -34,7 +35,8 @@ const getBookings = asyncHandler(async (req, res) => {
 // Get a specific booking
 const getBooking = asyncHandler(async (req, res) => {
     const users = readUsersData();
-    const user = users.find((user) => user.id === req.user.id);
+    const { email } = req.body;
+    const user = users.find((user) => user.email === email);
     if (!user) {
         res.status(404);
         throw new Error("User not found");
@@ -52,12 +54,12 @@ const getBooking = asyncHandler(async (req, res) => {
 // Add a new booking
 const addBooking = asyncHandler(async (req, res) => {
     const users = readUsersData();
-    const { check_in, check_out, room_type, price } = req.body;
-    if (!check_in || !check_out || !room_type || !price) {
+    const { email, check_in, check_out, room_type, price } = req.body;
+    if (!email || !check_in || !check_out || !room_type || !price) {
         res.status(400);
         throw new Error("All fields are mandatory");
     }
-    const user = users.find((user) => user.id === req.user.id);
+    const user = users.find((user) => user.email === email);
     if (!user) {
         res.status(404);
         throw new Error("User not found");
@@ -81,7 +83,8 @@ const addBooking = asyncHandler(async (req, res) => {
 // Update a specific booking
 const updateBooking = asyncHandler(async (req, res) => {
     const users = readUsersData();
-    const user = users.find((user) => user.id === req.user.id);
+    const { email } = req.body;
+    const user = users.find((user) => user.email === email);
     if (!user) {
         res.status(404);
         throw new Error("User not found");
@@ -102,12 +105,13 @@ const updateBooking = asyncHandler(async (req, res) => {
 
     writeUsersData(users);
     res.status(200).json(user.bookings[bookingIndex]);
-});
+}); 
 
 // Delete a specific booking
 const deleteBooking = asyncHandler(async (req, res) => {
     const users = readUsersData();
-    const user = users.find((user) => user.id === req.user.id);
+    const { email } = req.body;
+    const user = users.find((user) => user.email === email);
     if (!user) {
         res.status(404);
         throw new Error("User not found");
@@ -125,6 +129,19 @@ const deleteBooking = asyncHandler(async (req, res) => {
     res.status(200).json({ message: "Booking removed" });
 });
 
+// Get bookings by email
+const getBookingsByEmail = asyncHandler(async (req, res) => {
+    const users = readUsersData();
+    const { email } = req.body;
+    const user = users.find((user) => user.email === email);
+    if (!user) {
+        res.status(404);
+        throw new Error("User not found");
+    }
+    const bookings = user.bookings || [];
+    res.status(200).json(bookings);
+});
+
 module.exports = {
     getBookings,
     addBooking,
@@ -132,4 +149,5 @@ module.exports = {
     getBooking,
     updateBooking,
     deleteBooking,
+    getBookingsByEmail,
 };
